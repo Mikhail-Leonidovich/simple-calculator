@@ -18,36 +18,41 @@
     <div class="calculator">
       <div class="calculator__container">
         <div class="calculator__top">
-          <input class="calculator__input" type="number" autofocus />
+          <input
+            class="calculator__input"
+            type="text"
+            placeholder="Введите число"
+            maxlength="12"
+          />
         </div>
         <div class="calculator__bottom">
           <div class="calculator__operations">
-            <button class="calculator__plus">+</button>
-            <button class="calculator__minus">-</button>
-            <button class="calculator__multiplication">*</button>
-            <button class="calculator__degree">/</button>
+            <button class="calculator__plus" value="+">+</button>
+            <button class="calculator__minus" value="-">-</button>
+            <button class="calculator__multiplication" value="*">*</button>
+            <button class="calculator__degree" value="/">/</button>
             <button class="calculator__equally">=</button>
           </div>
           <div class="calculator__numbers">
             <div class="calculator__numbers-top">
-              <button class="calculator__seven">7</button>
-              <button class="calculator__eight">8</button>
-              <button class="calculator__nine">9</button>
+              <button class="calculator__seven" value="7">7</button>
+              <button class="calculator__eight" value="8">8</button>
+              <button class="calculator__nine" value="9">9</button>
             </div>
             <div class="calculator__numbers-center">
-              <button class="calculator__four">4</button>
-              <button class="calculator__five">5</button>
-              <button class="calculator__six">6</button>
+              <button class="calculator__four" value="4">4</button>
+              <button class="calculator__five" value="5">5</button>
+              <button class="calculator__six" value="6">6</button>
             </div>
             <div class="calculator__numbers-bottom">
-              <button class="calculator__one">1</button>
-              <button class="calculator__two">2</button>
-              <button class="calculator__three">3</button>
+              <button class="calculator__one" value="1">1</button>
+              <button class="calculator__two" value="2">2</button>
+              <button class="calculator__three" value="3">3</button>
             </div>
             <div class="calculator__numbers-last">
-              <button class="calculator__comma">,</button>
-              <button class="calculator__zero">0</button>
-              <button class="calculator__clear">C</button>
+              <button class="calculator__comma" value=",">,</button>
+              <button class="calculator__zero" value="0">0</button>
+              <button class="calculator__clear" value="">C</button>
             </div>
           </div>
         </div>
