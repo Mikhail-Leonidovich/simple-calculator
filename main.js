@@ -3,98 +3,69 @@ const allButtons = document.querySelectorAll("button");
 const allButtonsNumbers = document.querySelectorAll(".calculator__numbers button");
 const allButtonsOperations = document.querySelectorAll(".calculator__operations button");
 
-const btnCalcPlus = document.querySelector(".calculator__plus");
-const btnCalcMinus = document.querySelector(".calculator__minus");
-const btnCalcMulti = document.querySelector(".calculator__multiplication");
-const btnCalcDegree = document.querySelector(".calculator__degree");
-const btnCalcEqually = document.querySelector(".calculator__equally");
+const btnCalcEquil = document.querySelector(".calculator__equil");
 
-const btnCalcSeven = document.querySelector(".calculator__seven");
-const btnCalcEight = document.querySelector(".calculator__eight");
-const btnCalcNine = document.querySelector(".calculator__nine");
-const btnCalcFour = document.querySelector(".calculator__four");
-const btnCalcFive = document.querySelector(".calculator__five");
-const btnCalcSix = document.querySelector(".calculator__six");
-const btnCalcOne = document.querySelector(".calculator__one");
-const btnCalcTwo = document.querySelector(".calculator__two");
-const btnCalcThree = document.querySelector(".calculator__three");
-const btnCalcZero = document.querySelector(".calculator__zero");
-const btnCalcComma = document.querySelector(".calculator__comma");
 const btnCalcClear = document.querySelector(".calculator__clear");
 
+const handleMouseOver = (e) => {
+    e.addEventListener("mouseover", () => {
+        focusBtn(e);
+        handleMouseDownBtn(e);
+        handleMouseUpBtn(e);
+
+    })
+}
+
+const handleMouseOut = (e) => {
+    e.addEventListener("mouseout", () => {
+        focusBtn(e);
+        handleMouseDownBtn(e);
+        handleMouseUpBtn(e);
+
+    })
+}
+
+const handleMouseDownBtn = (e) => {
+    e.addEventListener("mousedown", () => {
+        e.classList.toggle("active");
+    })
+}
+
+const handleMouseUpBtn = (e) => {
+    e.addEventListener("mouseup", () => {
+        e.classList.toggle("active");
+    })
+}
+
+const focusBtn = (e) => {
+    e.classList.toggle("focus");
+}
+
 allButtons.forEach((item) => {
-    item.addEventListener("click", () => {
-        checkInputValue(item);
-    })
-    item.addEventListener("mouseover", () => {
-        focusBtn(item);
-        mouseDownBtn(item);
-        mouseUpBtn(item);
-    })
-    item.addEventListener("mouseout", () => {
-        focusBtn(item);
-        mouseDownBtn(item);
-        mouseUpBtn(item);
-    })
+    handleMouseOver(item);
+    handleMouseOut(item);
 })
 
-const focusBtn = (elem) => {
-    elem.classList.toggle("focus");
-}
-
-const mouseDownBtn = (elem) => {
-    elem.addEventListener("mousedown", () => {
-        elem.classList.toggle("active");
-    })
-}
-
-const mouseUpBtn = (elem) => {
-    elem.addEventListener("mouseup", () => {
-        elem.classList.toggle("active");
-    })
-}
-
-let result = +localStorage.getItem("result"); // конечный результат всех вычислений
-
-const checkInputValue = (e) => {
-    if (e.value !== "+" && e.value !== "-" && e.value !== "*" && e.value !== "/") {
-        addInputNumbers(e);
+const addBtnValue = (elem) => {
+    if (inputCalculator.value === "0") {
+        inputCalculator.value = elem;
+    } else if (elem === "C") {
+        inputCalculator.value = "0";
     } else {
-        addInputOperations(e);
-    }
-}
-
-const addInputNumbers = (e) => {
-    let someDate = +inputCalculator.value;
-    if (!Number(someDate)) {
-        inputCalculator.value = "";
+        inputCalculator.value += elem;
     }
 
-    let btnValue = e.value;
-    inputCalculator.value += btnValue;
-    localStorage.setItem("result", inputCalculator.value);
-    /*  result = localStorage.getItem("result"); */
 }
 
-const addInputOperations = (e) => {
-    let btnValue = e.value;
-    inputCalculator.value = btnValue;
-    let inetermediateResult = localStorage.getItem("result");
-    if (e.value == "+") {
-        result = +inetermediateResult + +result;
-    } else if (e.value == "-") {
-        result = +inetermediateResult - +result;
-    } else if (e.value == "*") {
-        result = +inetermediateResult * +result;
-    } else if (e.value == "/") {
-        result = +inetermediateResult / +result;
-    }
-    inetermediateResult = "";
-    console.log(result);
-}
+inputCalculator.addEventListener("keydown", (e) => {
+    let currentKey = e.key.toLowerCase();
+    let arrayOfOperations = ["*", "/", "+", "-"]
 
-btnCalcClear.addEventListener("click", () => {
-    localStorage.removeItem("result");
-    inputCalculator.value = "";
+    if ((currentKey >= 0) && (currentKey <= 9) || (arrayOfOperations.includes(currentKey))) {
+        e.preventDefault();
+        addBtnValue(e.key);
+    } else if ((currentKey >= "a" && currentKey <= "z")) {
+        e.preventDefault();
+    } else e.preventDefault();
 
 })

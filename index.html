@@ -22,37 +22,74 @@
             class="calculator__input"
             type="text"
             placeholder="Введите число"
-            maxlength="12"
+            value="0"
           />
         </div>
         <div class="calculator__bottom">
           <div class="calculator__operations">
-            <button class="calculator__plus" value="+">+</button>
-            <button class="calculator__minus" value="-">-</button>
-            <button class="calculator__multiplication" value="*">*</button>
-            <button class="calculator__degree" value="/">/</button>
-            <button class="calculator__equally">=</button>
+            <button class="calculator__plus" onclick="addBtnValue('+')">
+              &plus;
+            </button>
+            <button class="calculator__minus" onclick="addBtnValue('-')">
+              &minus;
+            </button>
+            <button
+              class="calculator__multiplication"
+              onclick="addBtnValue('*')"
+            >
+              &times;
+            </button>
+            <button class="calculator__divide" onclick="addBtnValue('/')">
+              &divide;
+            </button>
+            <button class="calculator__equil" onclick="addBtnValue('=')">
+              =
+            </button>
           </div>
           <div class="calculator__numbers">
             <div class="calculator__numbers-top">
-              <button class="calculator__seven" value="7">7</button>
-              <button class="calculator__eight" value="8">8</button>
-              <button class="calculator__nine" value="9">9</button>
+              <button class="calculator__seven" onclick="addBtnValue('7')">
+                7
+              </button>
+              <button class="calculator__eight" onclick="addBtnValue('8')">
+                8
+              </button>
+              <button class="calculator__nine" onclick="addBtnValue('9')">
+                9
+              </button>
             </div>
             <div class="calculator__numbers-center">
-              <button class="calculator__four" value="4">4</button>
-              <button class="calculator__five" value="5">5</button>
-              <button class="calculator__six" value="6">6</button>
+              <button class="calculator__four" onclick="addBtnValue('4')">
+                4
+              </button>
+              <button class="calculator__five" onclick="addBtnValue('5')">
+                5
+              </button>
+              <button class="calculator__six" onclick="addBtnValue('6')">
+                6
+              </button>
             </div>
             <div class="calculator__numbers-bottom">
-              <button class="calculator__one" value="1">1</button>
-              <button class="calculator__two" value="2">2</button>
-              <button class="calculator__three" value="3">3</button>
+              <button class="calculator__one" onclick="addBtnValue('1')">
+                1
+              </button>
+              <button class="calculator__two" onclick="addBtnValue('2')">
+                2
+              </button>
+              <button class="calculator__three" onclick="addBtnValue('3')">
+                3
+              </button>
             </div>
             <div class="calculator__numbers-last">
-              <button class="calculator__comma" value=",">,</button>
-              <button class="calculator__zero" value="0">0</button>
-              <button class="calculator__clear" value="">C</button>
+              <button class="calculator__comma" onclick="addBtnValue(',')">
+                ,
+              </button>
+              <button class="calculator__zero" onclick="addBtnValue('0')">
+                0
+              </button>
+              <button class="calculator__clear" onclick="addBtnValue('C')">
+                C
+              </button>
             </div>
           </div>
         </div>
